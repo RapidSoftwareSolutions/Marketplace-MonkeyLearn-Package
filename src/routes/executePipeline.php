@@ -11,6 +11,14 @@ $app->post('/api/MonkeyLearn/executePipeline', function ($request, $response) {
     } else {
         $post_data = $validateRes;
     }
+    foreach ($post_data['args'] as $key=>$value){
+        if($value=="true"){
+            $post_data['args'][$key]=true;
+        }
+        if($value=="false"){
+            $post_data['args'][$key]=false;
+        }
+    }
     $apiToken = $post_data['args']['apiToken'];
     $pipelineId = $post_data['args']['pipelineId'];
     if(is_array($post_data['args']['data'])){

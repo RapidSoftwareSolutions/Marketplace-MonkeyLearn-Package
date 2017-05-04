@@ -11,6 +11,14 @@ $app->post('/api/MonkeyLearn/extractEntitiesInSpanish', function ($request, $res
     } else {
         $post_data = $validateRes;
     }
+    foreach ($post_data['args'] as $key=>$value){
+        if($value=="true"){
+            $post_data['args'][$key]=true;
+        }
+        if($value=="false"){
+            $post_data['args'][$key]=false;
+        }
+    }
 
     $apiToken = $post_data['args']['apiToken'];
     if(is_array($post_data['args']['textList']))

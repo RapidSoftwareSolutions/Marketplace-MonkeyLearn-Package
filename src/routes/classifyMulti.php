@@ -11,11 +11,21 @@ $app->post('/api/MonkeyLearn/classifyMulti', function ($request, $response) {
     } else {
         $post_data = $validateRes;
     }
+    foreach ($post_data['args'] as $key=>$value){
+        if($value=="true"){
+            $post_data['args'][$key]=true;
+        }
+        if($value=="false"){
+            $post_data['args'][$key]=false;
+        }
+    }
 
     $apiToken = $post_data['args']['apiToken'];
     $classifierId = $post_data['args']['classifierId'];
 
-    if(is_array($post_data['args']['textList']))
+    $textList = \Models\normilizeJson::normalizeJson($post_data['args']['textList']);
+
+    if(is_array($textList))
     {
         foreach ($post_data['args']['textList'] as $item)
         {
