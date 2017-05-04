@@ -27,7 +27,7 @@ This endpoint allows you to perform the classification of many text samples usin
 |-------------|------------|----------
 | apiToken    | credentials| The api key obtained from Monkey Learn
 | classifierId| String     | ID of the classifier
-| textList    | Array      | List of the texts which you want to classify. Example: ['First text to classify','Second text to classify']
+| textList    | String     | Type: Array. List of the texts which you want to classify. Example: ['First text to classify','Second text to classify']
 | sandbox     | Boolean    | Set this parameter to true if you want to use the sandbox to perform the classification.
 | debug       | Boolean    | Set this parameter to true if you want to use the debug output.y
 
@@ -145,7 +145,7 @@ Extract keywords from a list of texts in English.
 | Field          | Type       | Description
 |----------------|------------|----------
 | apiToken       | credentials| The api key obtained from Monkey Learn
-| textList       | Array      | A list of texts from which to extract keywords. Example: ["Monkeylearn is a Text Mining toolkit.", "This is a very good extractor"]
+| textList       | String     | Type: Array. A list of texts from which to extract keywords. Example: ["Monkeylearn is a Text Mining toolkit.", "This is a very good extractor"]
 | maxKeywords    | Number     | The maximum amount of keywords to extract, defaults to 10.
 | useStemming    | Boolean    | Take words to their base form in order to get better results , defaults to true.
 | useIdfs        | Boolean    | Use a language model for computing the Inverse Document Frequencies, defaults to true.
@@ -160,7 +160,7 @@ Extract keywords from a list of texts in Spanish.
 | Field      | Type       | Description
 |------------|------------|----------
 | apiToken   | credentials| The api key obtained from Monkey Learn
-| textList   | Array      | A list of texts from which to extract keywords. 
+| textList   | String     | Type: Array. A list of texts from which to extract keywords. 
 | maxKeywords| Number     | The maximum amount of keywords to extract, defaults to 10.
 
 ## MonkeyLearn.extractTextFromBinary
@@ -177,7 +177,7 @@ Extract relevant text from a list of HTML’s. This algorithm can be used to det
 | Field   | Type       | Description
 |---------|------------|----------
 | apiToken| credentials| The api key obtained from Monkey Learn
-| html    | String     | HTML from which to extract the texts. Example: '<html><body><h1>New products and services are released every month that dramatically change how we can develop products and manage our IT shops. Innovation is everywhere; it can be hard to keep up, but that is part of the fun</h1></body></html>'
+| html    | String     | HTML from which to extract the texts. Example: ```<html><body><h1>New products and services are released every month that dramatically change how we can develop products and manage our IT shops. Innovation is everywhere; it can be hard to keep up, but that is part of the fun</h1></body></html>```
 
 ## MonkeyLearn.extractEntities
 Extract Entities from a list of texts using Named Entity Recognition (NER). NER labels sequences of words in a text which are the names of things, such as person and company names. This implementation labels 3 classes: PERSON, ORGANIZATION and LOCATION.
@@ -185,15 +185,15 @@ Extract Entities from a list of texts using Named Entity Recognition (NER). NER 
 | Field   | Type       | Description
 |---------|------------|----------
 | apiToken| credentials| The api key obtained from Monkey Learn
-| textList| Array      | A list of texts from which to extract the entities. Example: ["Juan lives in Uruguay.", "Monica lives in the USA."]
+| textList| String     | Type: Array. A list of texts from which to extract the entities. Example: ```["Juan lives in Uruguay.", "Monica lives in the USA."]```
 
 ## MonkeyLearn.extractEntitiesInSpanish
-Extract Entities from a list of texts in Spanish using Named Entity Recognition (NER). NER labels sequences of words in a text which are the names of things, such as person and company names. This implementation labels 4 classes: PERS, ORG, LUG and OTROS.
+Extract Entities from a list of texts in Spanish using Named Entity Recognition (NER). NER labels sequences of words in a text which are the names of things, such as person and company names. This implementation labels 4 classes: ```PERS```, ```ORG```, ```LUG``` and ```OTROS```.
 
 | Field   | Type       | Description
 |---------|------------|----------
 | apiToken| credentials| The api key obtained from Monkey Learn
-| textList| Array      | A list of texts from which to extract the entities. Example: ["Juan vive en Uruguay.", "Monica vive en USA."]
+| textList| String     | Type: Array. A list of texts from which to extract the entities. Example: ```["Juan vive en Uruguay.", "Monica vive en USA."]```
 
 ## MonkeyLearn.executePipeline
 Executes the selected pipeline.

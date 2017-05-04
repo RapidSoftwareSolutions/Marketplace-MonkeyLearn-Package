@@ -78,8 +78,8 @@
         },
         {
           "name": "textList",
-          "type": "Array",
-          "info": "List of the texts which you want to classify. Example: ['First text to classify','Second text to classify']",
+          "type": "String",
+          "info": "Type: Array. List of the texts which you want to classify. Example: ['First text to classify','Second text to classify']",
           "required": true
         },
         {
@@ -498,8 +498,8 @@
       },
         {
           "name": "textList",
-          "type": "Array",
-          "info": "A list of texts from which to extract keywords. Example: [\"Monkeylearn is a Text Mining toolkit.\", \"This is a very good extractor\"]",
+          "type": "String",
+          "info": "Type: Array. A list of texts from which to extract keywords. Example: [\"Monkeylearn is a Text Mining toolkit.\", \"This is a very good extractor\"]",
           "required": true
         },
         {
@@ -564,8 +564,8 @@
       },
         {
           "name": "textList",
-          "type": "Array",
-          "info": "A list of texts from which to extract keywords. ",
+          "type": "String",
+          "info": "Type: Array. A list of texts from which to extract keywords. ",
           "required": true
         },
         {
@@ -642,8 +642,8 @@
       },
         {
           "name": "textList",
-          "type": "Array",
-          "info": "A list of texts from which to extract the entities. Example: [\"Juan lives in Uruguay.\", \"Monica lives in the USA.\"]",
+          "type": "String",
+          "info": "Type: Array. A list of texts from which to extract the entities. Example: [\"Juan lives in Uruguay.\", \"Monica lives in the USA.\"]",
           "required": true
         }
       ],
@@ -666,8 +666,8 @@
       },
         {
           "name": "textList",
-          "type": "Array",
-          "info": "A list of texts from which to extract the entities. Example: [\"Juan vive en Uruguay.\", \"Monica vive en USA.\"]",
+          "type": "String",
+          "info": "Type: Array. A list of texts from which to extract the entities. Example: [\"Juan vive en Uruguay.\", \"Monica vive en USA.\"]",
           "required": true
         }
       ],
