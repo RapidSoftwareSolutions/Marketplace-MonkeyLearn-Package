@@ -21,7 +21,6 @@ $app->post('/api/MonkeyLearn/extractKeywordsInEnglish', function ($request, $res
     }
 
     $apiToken = $post_data['args']['apiToken'];
-
     $data['use_stemming']=true;
     $data['use_idfs']=true;
     $data['lowercase']=false;
@@ -57,7 +56,7 @@ $app->post('/api/MonkeyLearn/extractKeywordsInEnglish', function ($request, $res
         $result['contextWrites']['to']['fields'] = 'textList';
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
     }
-    
+
     $query_str = $settings['api_url'] . "extractors/ex_y7BPYzNG/extract/";
     $client = $this->httpClient;
 

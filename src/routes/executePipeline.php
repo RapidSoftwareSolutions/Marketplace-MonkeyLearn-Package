@@ -21,9 +21,21 @@ $app->post('/api/MonkeyLearn/executePipeline', function ($request, $response) {
     }
     $apiToken = $post_data['args']['apiToken'];
     $pipelineId = $post_data['args']['pipelineId'];
-    if(is_array($post_data['args']['data'])){
-        $data = $post_data['args']['data'];
+
+    if(!empty($post_data['args']['data'])){
+        $normalData = \Models\normilizeJson::normalizeJson($post_data['args']['data']);
+        if(is_array($normalData)){
+            $data = $normalData;
+        }
+        else{
+            $result['callback'] = 'error';
+            $result['contextWrites']['to']['status_code'] = 'JSON_VALIDATION';
+            $result['contextWrites']['to']['status_msg'] = 'Please, check and fill in required fields.';
+            $result['contextWrites']['to']['fields'] = 'data';
+            return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
+        }
     }
+
     $query['sandbox']=1;
     $query_str = $settings['api_url'] . "pipelines/$pipelineId/run/";
 
