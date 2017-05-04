@@ -1,0 +1,714 @@
+{
+  "package": "MonkeyLearn",
+  "tagline": "Monkey Learn API",
+  "description": "",
+  "image": "https://logo.clearbit.com/monkeylearn.com",
+  "repo": "https://github.com/RapidSoftwareSolutions/Marketplace-MonkeyLearn-Package",
+  "keywords": [
+    "API",
+    "algorithm",
+    "function",
+    "learning",
+    "machine",
+    "MachineLearning"
+  ],
+  "accounts": {
+    "domain": "monkeylearn.com",
+    "credentials": [
+      "apiToken"
+    ]
+  },
+  "blocks": [
+    {
+    "name": "classify",
+    "description": "This endpoint allows you to perform the classification of many text samples using only one request to a custom or public module.",
+    "args": [{
+      "name": "apiToken",
+      "type": "credentials",
+      "info": "The api key obtained from Monkey Learn",
+      "required": true
+    },
+      {
+        "name": "classifierId",
+        "type": "String",
+        "info": "ID of the classifier. Example: cl_5icAVzKR",
+        "required": true
+      },
+      {
+        "name": "text",
+        "type": "String",
+        "info": "The text that you want to classify",
+        "required": true
+      },
+      {
+        "name": "sandbox",
+        "type": "Boolean",
+        "info": "Set this parameter to true if you want to use the sandbox to perform the classification.",
+        "required": false
+      },
+      {
+        "name": "debug",
+        "type": "Boolean",
+        "info": "Set this parameter to true if you want to use the debug output.y",
+        "required": false
+      }
+    ],
+    "callbacks": [{
+      "name": "error",
+      "info": "Error"
+    }, {
+      "name": "success",
+      "info": "Success"
+    }]
+  },
+    {
+      "name": "classifyMulti",
+      "description": "This endpoint allows you to perform the classification of many text samples using only one request to a custom or public module that you have already installed. In order for this endpoint to work, the module has to be set as a Multilabel Module.",
+      "args": [{
+        "name": "apiToken",
+        "type": "credentials",
+        "info": "The api key obtained from Monkey Learn",
+        "required": true
+      },
+        {
+          "name": "classifierId",
+          "type": "String",
+          "info": "ID of the classifier",
+          "required": true
+        },
+        {
+          "name": "textList",
+          "type": "Array",
+          "info": "List of the texts which you want to classify. Example: ['First text to classify','Second text to classify']",
+          "required": true
+        },
+        {
+          "name": "sandbox",
+          "type": "Boolean",
+          "info": "Set this parameter to true if you want to use the sandbox to perform the classification.",
+          "required": false
+        },
+        {
+          "name": "debug",
+          "type": "Boolean",
+          "info": "Set this parameter to true if you want to use the debug output.y",
+          "required": false
+        }
+      ],
+      "callbacks": [{
+        "name": "error",
+        "info": "Error"
+      }, {
+        "name": "success",
+        "info": "Success"
+      }]
+    },
+    {
+      "name": "getClassifiers",
+      "description": "This endpoint returns the classifier and it’s sandbox categories attributes.",
+      "args": [{
+        "name": "apiToken",
+        "type": "credentials",
+        "info": "The api key obtained from Monkey Learn",
+        "required": true
+      }],
+      "callbacks": [{
+        "name": "error",
+        "info": "Error"
+      }, {
+        "name": "success",
+        "info": "Success"
+      }]
+    },
+    {
+      "name": "getSingleClassifier",
+      "description": "This endpoint returns the classifier and it’s sandbox categories attributes.",
+      "args": [{
+        "name": "apiToken",
+        "type": "credentials",
+        "info": "The api key obtained from Monkey Learn",
+        "required": true
+      },
+        {
+          "name": "classifierId",
+          "type": "String",
+          "info": "ID of the classifier",
+          "required": true
+        }
+      ],
+      "callbacks": [{
+        "name": "error",
+        "info": "Error"
+      }, {
+        "name": "success",
+        "info": "Success"
+      }]
+    },
+    {
+      "name": "createClassifierCategory",
+      "description": "This endpoint creates a new category on the tree. You have to select a name and a parent category.",
+      "args": [{
+        "name": "apiToken",
+        "type": "credentials",
+        "info": "The api key obtained from Monkey Learn",
+        "required": true
+      },
+        {
+          "name": "projectId",
+          "type": "String",
+          "info": "ID of the project",
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "info": "Category name",
+          "required": true
+        },
+        {
+          "name": "parentId",
+          "type": "String",
+          "info": "ID of parent category",
+          "required": true
+        }
+      ],
+      "callbacks": [{
+        "name": "error",
+        "info": "Error"
+      }, {
+        "name": "success",
+        "info": "Success"
+      }]
+    },
+    {
+      "name": "updateClassifierCategory",
+      "description": "This endpoint edits a category from the tree on a classifier.",
+      "args": [{
+        "name": "apiToken",
+        "type": "credentials",
+        "info": "The api key obtained from Monkey Learn",
+        "required": true
+      },
+        {
+          "name": "projectId",
+          "type": "String",
+          "info": "ID of the project",
+          "required": true
+        },
+        {
+          "name": "categoryId",
+          "type": "String",
+          "info": "ID of category",
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "info": "Category name",
+          "required": true
+        },
+        {
+          "name": "parentId",
+          "type": "String",
+          "info": "ID of parent category",
+          "required": true
+        }
+
+      ],
+      "callbacks": [{
+        "name": "error",
+        "info": "Error"
+      }, {
+        "name": "success",
+        "info": "Success"
+      }]
+    },
+    {
+      "name": "deleteClassifierCategory",
+      "description": "This endpoint deletes a category from the tree. This action cannot be undone.",
+      "args": [{
+        "name": "apiToken",
+        "type": "credentials",
+        "info": "The api key obtained from Monkey Learn",
+        "required": true
+      },
+        {
+          "name": "projectId",
+          "type": "String",
+          "info": "ID of the project",
+          "required": true
+        },
+        {
+          "name": "categoryId",
+          "type": "String",
+          "info": "Category id",
+          "required": true
+        },
+        {
+          "name": "samplesStrategy",
+          "type": "String",
+          "info": "Parameter can have 2 values: “move-to-parent” or “move-to”. If you select “move-to” then also have to set the “samples-category-id” paremeter with the id of the category where you want to move the samples.",
+          "required": true
+        },
+        {
+          "name": "samplesCategoryId",
+          "type": "String",
+          "info": "Category id",
+          "required": false
+        }
+      ],
+      "callbacks": [{
+        "name": "error",
+        "info": "Error"
+      }, {
+        "name": "success",
+        "info": "Success"
+      }]
+    },
+    {
+      "name": "uploadSamplesToCategory",
+      "description": "This endpoints allows you to upload samples to the categories.",
+      "args": [{
+        "name": "apiToken",
+        "type": "credentials",
+        "info": "The api key obtained from Monkey Learn",
+        "required": true
+      },
+        {
+          "name": "projectId",
+          "type": "String",
+          "info": "ID of the project",
+          "required": true
+        },
+        {
+          "name": "samples",
+          "type": "String",
+          "info": "A list of dictionaries with the sample text (text property) and the ID of the category that sample should be saved (category_id property). The category IDs can be retrived using the classifier detail endpoint. Example: [{\"text\":\"Example sample test 1 to category\",\"category_id\":17145562}]",
+          "required": true
+        }
+      ],
+      "callbacks": [{
+        "name": "error",
+        "info": "Error"
+      }, {
+        "name": "success",
+        "info": "Success"
+      }]
+    },
+    {
+      "name": "uploadSamplesToMultiCategory",
+      "description": "This endpoints allows you to upload samples to one or more categories.",
+      "args": [{
+        "name": "apiToken",
+        "type": "credentials",
+        "info": "The api key obtained from Monkey Learn",
+        "required": true
+      },
+        {
+          "name": "projectId",
+          "type": "String",
+          "info": "ID of the project",
+          "required": true
+        },
+        {
+          "name": "samples",
+          "type": "String",
+          "info": "A list of dictionaries with the sample text (text property) and the ID of the category that sample should be saved (category_id property). The category IDs can be retrived using the classifier detail endpoint. Example: [{\"text\":\"Example sample asdasdasdtest asdasd1 to category\",\"category_id\":[17145562]}]",
+          "required": true
+        }
+      ],
+      "callbacks": [{
+        "name": "error",
+        "info": "Error"
+      }, {
+        "name": "success",
+        "info": "Success"
+      }]
+    },
+    {
+      "name": "trainClassifier",
+      "description": "This endpoint allows you to train a classifier.",
+      "args": [{
+        "name": "apiToken",
+        "type": "credentials",
+        "info": "The api key obtained from Monkey Learn",
+        "required": true
+      },
+        {
+          "name": "classifierId",
+          "type": "String",
+          "info": "ID of the classifier",
+          "required": true
+        }
+      ],
+      "callbacks": [{
+        "name": "error",
+        "info": "Error"
+      }, {
+        "name": "success",
+        "info": "Success"
+      }]
+    },
+    {
+      "name": "deployClassifier",
+      "description": "This endpoint allows you to deploy the current sandbox classifier as the live classifier. Note that the old live classifier will be overwritten.",
+      "args": [{
+        "name": "apiToken",
+        "type": "credentials",
+        "info": "The api key obtained from Monkey Learn",
+        "required": true
+      },
+        {
+          "name": "classifierId",
+          "type": "String",
+          "info": "ID of the classifier",
+          "required": true
+        }
+      ],
+      "callbacks": [{
+        "name": "error",
+        "info": "Error"
+      }, {
+        "name": "success",
+        "info": "Success"
+      }]
+    },
+    {
+      "name": "createClassifier",
+      "description": "This endpoint creates a new classifier.",
+      "args": [{
+        "name": "apiToken",
+        "type": "credentials",
+        "info": "The api key obtained from Monkey Learn",
+        "required": true
+      },
+        {
+          "name": "name",
+          "type": "String",
+          "info": "Classifier name",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "info": "Classifier description",
+          "required": false
+        },
+        {
+          "name": "trainState",
+          "type": "String",
+          "info": "Train state. TRAINED or UNTRAINED",
+          "required": false
+        },
+        {
+          "name": "language",
+          "type": "String",
+          "info": "This setting should match the language in your samples. Default: en",
+          "required": false
+        },
+        {
+          "name": "ngramRange",
+          "type": "String",
+          "info": "N-gram range sets if features to be used to characterize texts will be Unigrams, Bigrams or Trigrams. Example: 1-1",
+          "required": false
+        },
+        {
+          "name": "useStemmer",
+          "type": "Boolean",
+          "info": "This setting sets if words should be stemmed. The stemming process transforms words into their root form, so inflected and derived words are grouped together. Default: true",
+          "required": false
+        },
+        {
+          "name": "stopWords",
+          "type": "String",
+          "info": "Stopwords are words that usually do not contribute as classification features. Example: soft,it",
+          "required": false
+        },
+        {
+          "name": "maxFeatures",
+          "type": "Number",
+          "info": "This sets the maximum number of features to be used to characterize texts in the training/classification process. ",
+          "required": false
+        },
+        {
+          "name": "stripStopwords",
+          "type": "Boolean",
+          "info": "Strip ",
+          "required": false
+        },
+        {
+          "name": "isMultilabel",
+          "type": "Boolean",
+          "info": "Define if the module is single-label (default) or multi-label. You can only set this option when you first create the module and you cannot change it later.",
+          "required": false
+        },
+        {
+          "name": "normalizeWeights",
+          "type": "Boolean",
+          "info": "Weights normalize",
+          "required": false
+        },
+        {
+          "name": "classifier",
+          "type": "String",
+          "info": "Use this setting to choose which classification algorithm you want to use for this classifier. ",
+          "required": false
+        }
+      ],
+      "callbacks": [{
+        "name": "error",
+        "info": "Error"
+      }, {
+        "name": "success",
+        "info": "Success"
+      }]
+    },
+    {
+      "name": "deleteClassifier",
+      "description": "This endpoint deletes a classifier. This action cannot be undone.",
+      "args": [{
+        "name": "apiToken",
+        "type": "credentials",
+        "info": "The api key obtained from Monkey Learn",
+        "required": true
+      },
+        {
+          "name": "classifierId",
+          "type": "String",
+          "info": "ID of the classifier",
+          "required": true
+        }
+      ],
+      "callbacks": [{
+        "name": "error",
+        "info": "Error"
+      }, {
+        "name": "success",
+        "info": "Success"
+      }]
+    },
+    {
+      "name": "extractKeywordsInEnglish",
+      "description": "Extract keywords from a list of texts in English.",
+      "args": [{
+        "name": "apiToken",
+        "type": "credentials",
+        "info": "The api key obtained from Monkey Learn",
+        "required": true
+      },
+        {
+          "name": "textList",
+          "type": "Array",
+          "info": "A list of texts from which to extract keywords. Example: [\"Monkeylearn is a Text Mining toolkit.\", \"This is a very good extractor\"]",
+          "required": true
+        },
+        {
+          "name": "maxKeywords",
+          "type": "Number",
+          "info": "The maximum amount of keywords to extract, defaults to 10.",
+          "required": false
+        },
+        {
+          "name": "useStemming",
+          "type": "Boolean",
+          "info": "Take words to their base form in order to get better results , defaults to true.",
+          "required": false
+        },
+        {
+          "name": "useIdfs",
+          "type": "Boolean",
+          "info": "Use a language model for computing the Inverse Document Frequencies, defaults to true.",
+          "required": false
+        },
+        {
+          "name": "lowercase",
+          "type": "Boolean",
+          "info": "Lowercase all the given text, defaults to false.",
+          "required": false
+        },
+        {
+          "name": "useCompanyNames",
+          "type": "Boolean",
+          "info": "Expand company names, if in the text appears the word ‘Google’ and in other part appears ‘Google Inc.’, the word ‘Google’ will be expanded to ‘Google Inc.’. Defaults to false.",
+          "required": false
+        },
+        {
+          "name": "expandAcronyms",
+          "type": "Boolean",
+          "info": "Expand acronyms to they full form, for example ‘USA’ to ‘United States of America’ if both tokens appear in the given text. Defaults to false.",
+          "required": false
+        },
+        {
+          "name": "keepAmpersand",
+          "type": "Boolean",
+          "info": "Keep the ‘&’ char when it appears inside a name. For example ‘Ferrara & Wolf’. Defaults to false.",
+          "required": false
+        }
+      ],
+      "callbacks": [{
+        "name": "error",
+        "info": "Error"
+      }, {
+        "name": "success",
+        "info": "Success"
+      }]
+    },
+    {
+      "name": "extractKeywordsInSpanish",
+      "description": "Extract keywords from a list of texts in Spanish.",
+      "args": [{
+        "name": "apiToken",
+        "type": "credentials",
+        "info": "The api key obtained from Monkey Learn",
+        "required": true
+      },
+        {
+          "name": "textList",
+          "type": "Array",
+          "info": "A list of texts from which to extract keywords. ",
+          "required": true
+        },
+        {
+          "name": "maxKeywords",
+          "type": "Number",
+          "info": "The maximum amount of keywords to extract, defaults to 10.",
+          "required": false
+        }
+      ],
+      "callbacks": [{
+        "name": "error",
+        "info": "Error"
+      }, {
+        "name": "success",
+        "info": "Success"
+      }]
+    },
+    {
+      "name": "extractTextFromBinary",
+      "description": "Extract plain text from binary documents as .doc, .docx, .pdf and .odt.",
+      "args": [{
+        "name": "apiToken",
+        "type": "credentials",
+        "info": "The api key obtained from Monkey Learn",
+        "required": true
+      },
+        {
+          "name": "file",
+          "type": "File",
+          "info": "The binary file from which to extract the text.",
+          "required": true
+        }
+      ],
+      "callbacks": [{
+        "name": "error",
+        "info": "Error"
+      }, {
+        "name": "success",
+        "info": "Success"
+      }]
+    },
+    {
+      "name": "extractTextFromHTML",
+      "description": "Extract relevant text from a list of HTML’s. This algorithm can be used to detect and remove the surplus “clutter” (boilerplate, templates) around the main textual content of a web page.",
+      "args": [{
+        "name": "apiToken",
+        "type": "credentials",
+        "info": "The api key obtained from Monkey Learn",
+        "required": true
+      },
+        {
+          "name": "html",
+          "type": "String",
+          "info": "HTML from which to extract the texts. Example: '<html><body><h1>New products and services are released every month that dramatically change how we can develop products and manage our IT shops. Innovation is everywhere; it can be hard to keep up, but that is part of the fun</h1></body></html>'",
+          "required": true
+        }
+      ],
+      "callbacks": [{
+        "name": "error",
+        "info": "Error"
+      }, {
+        "name": "success",
+        "info": "Success"
+      }]
+    },
+    {
+      "name": "extractEntities",
+      "description": "Extract Entities from a list of texts using Named Entity Recognition (NER). NER labels sequences of words in a text which are the names of things, such as person and company names. This implementation labels 3 classes: PERSON, ORGANIZATION and LOCATION.",
+      "args": [{
+        "name": "apiToken",
+        "type": "credentials",
+        "info": "The api key obtained from Monkey Learn",
+        "required": true
+      },
+        {
+          "name": "textList",
+          "type": "Array",
+          "info": "A list of texts from which to extract the entities. Example: [\"Juan lives in Uruguay.\", \"Monica lives in the USA.\"]",
+          "required": true
+        }
+      ],
+      "callbacks": [{
+        "name": "error",
+        "info": "Error"
+      }, {
+        "name": "success",
+        "info": "Success"
+      }]
+    },
+    {
+      "name": "extractEntitiesInSpanish",
+      "description": "Extract Entities from a list of texts in Spanish using Named Entity Recognition (NER). NER labels sequences of words in a text which are the names of things, such as person and company names. This implementation labels 4 classes: PERS, ORG, LUG and OTROS.",
+      "args": [{
+        "name": "apiToken",
+        "type": "credentials",
+        "info": "The api key obtained from Monkey Learn",
+        "required": true
+      },
+        {
+          "name": "textList",
+          "type": "Array",
+          "info": "A list of texts from which to extract the entities. Example: [\"Juan vive en Uruguay.\", \"Monica vive en USA.\"]",
+          "required": true
+        }
+      ],
+      "callbacks": [{
+        "name": "error",
+        "info": "Error"
+      }, {
+        "name": "success",
+        "info": "Success"
+      }]
+    },
+    {
+      "name": "executePipeline",
+      "description": "Executes the selected pipeline.",
+      "args": [{
+        "name": "apiToken",
+        "type": "credentials",
+        "info": "The api key obtained from Monkey Learn",
+        "required": true
+      },
+        {
+          "name": "pipelineId",
+          "type": "String",
+          "info": "A list of texts from which to extract the entities.",
+          "required": true
+        },
+        {
+          "name": "data",
+          "type": "Json",
+          "info": "Depends on the pipeline definition. The JSON you post here will be used as the initial state of the Pipeline.",
+          "required": false
+        }
+      ],
+      "callbacks": [{
+        "name": "error",
+        "info": "Error"
+      }, {
+        "name": "success",
+        "info": "Success"
+      }]
+    }
+
+  ]
+}
