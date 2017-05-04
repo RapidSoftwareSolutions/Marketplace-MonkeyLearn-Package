@@ -2,7 +2,7 @@
 
 # MonkeyLearn Package
 
-* Domain: monkeylearn.com
+* Domain: [monkeylearn.com](https://monkeylearn.com)
 * Credentials: apiToken
 
 ## How to get credentials: 
