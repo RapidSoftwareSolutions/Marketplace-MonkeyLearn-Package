@@ -696,7 +696,7 @@
         },
         {
           "name": "data",
-          "type": "Json",
+          "type": "JSON",
           "info": "Depends on the pipeline definition. The JSON you post here will be used as the initial state of the Pipeline.",
           "required": false
         }

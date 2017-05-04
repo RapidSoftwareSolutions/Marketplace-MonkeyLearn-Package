@@ -15,13 +15,16 @@ $app->post('/api/MonkeyLearn/createClassifier', function ($request, $response) {
     $apiToken = $post_data['args']['apiToken'];
     $data['name'] = $post_data['args']['name'];
 
-    $optionalParam = ['description'=>'description','trainState'=>'train_state','language'=>'language','ngramRange'=>'ngram_range','useStemmer'=>'use_stemmer','stopWords'=>'stop_words','maxFeatures'=>'max_features','stripStopwords'=>'strip_stopwords','isMultilabel'=>'is_multilabel','normalizeWeights'=>'normalize_weights','classifier'=>'classifier'];
+    $optionalParam = ['description'=>'description','trainState'=>'train_state','language'=>'language','ngramRange'=>'ngram_range','useStemmer'=>'use_stemmer','stopWords'=>'stop_words','stripStopwords'=>'strip_stopwords','isMultilabel'=>'is_multilabel','normalizeWeights'=>'normalize_weights','classifier'=>'classifier'];
     foreach ($post_data['args'] as $key=>$value)
     {
         if(array_key_exists($key, $optionalParam) && $value!=='')
         {
             $data[$optionalParam[$key]] = $value;
         }
+    }
+    if(!empty($post_data['args']['maxFeatures'])){
+        $data['max_features'] = $post_data['args']['maxFeatures'];
     }
     $query_str = $settings['api_url'] . "classifiers/";
     $client = $this->httpClient;
