@@ -5,9 +5,11 @@
 * Domain: [monkeylearn.com](https://monkeylearn.com)
 * Credentials: apiToken
 
-## How to get credentials: 
-0. Item one 
-1. Item two
+## How to get credentials:
+1. Sign in [monkeylearn.com](https://monkeylearn.com).
+2. Navigate to My Account->Api Keys
+3. Generate API token
+
  
 ## MonkeyLearn.classify
 This endpoint allows you to perform the classification of many text samples using only one request to a custom or public module.
@@ -15,7 +17,7 @@ This endpoint allows you to perform the classification of many text samples usin
 | Field       | Type       | Description
 |-------------|------------|----------
 | apiToken    | credentials| The api key obtained from Monkey Learn
-| classifierId| String     | ID of the classifier. Example: cl_5icAVzKR
+| classifierId| String     | ID of the classifier. Example: ```cl_5icAVzKR```
 | text        | String     | The text that you want to classify
 | sandbox     | Boolean    | Set this parameter to true if you want to use the sandbox to perform the classification.
 | debug       | Boolean    | Set this parameter to true if you want to use the debug output.y
@@ -27,7 +29,7 @@ This endpoint allows you to perform the classification of many text samples usin
 |-------------|------------|----------
 | apiToken    | credentials| The api key obtained from Monkey Learn
 | classifierId| String     | ID of the classifier
-| textList    | String     | Type: Array. List of the texts which you want to classify. Example: ['First text to classify','Second text to classify']
+| textList    | String     | Type: Array. List of the texts which you want to classify. Example: ```['First text to classify','Second text to classify']```
 | sandbox     | Boolean    | Set this parameter to true if you want to use the sandbox to perform the classification.
 | debug       | Boolean    | Set this parameter to true if you want to use the debug output.y
 
@@ -75,7 +77,7 @@ This endpoint deletes a category from the tree. This action cannot be undone.
 | apiToken         | credentials| The api key obtained from Monkey Learn
 | projectId        | String     | ID of the project
 | categoryId       | String     | Category id
-| samplesStrategy  | String     | Parameter can have 2 values: “move-to-parent” or “move-to”. If you select “move-to” then also have to set the “samples-category-id” paremeter with the id of the category where you want to move the samples.
+| samplesStrategy  | String     | Parameter can have 2 values: ```move-to-parent``` or ```move-to```. If you select ```move-to``` then also have to set the ```samples-category-id``` paremeter with the id of the category where you want to move the samples.
 | samplesCategoryId| String     | Category id
 
 ## MonkeyLearn.uploadSamplesToCategory
@@ -85,7 +87,7 @@ This endpoints allows you to upload samples to the categories.
 |----------|------------|----------
 | apiToken | credentials| The api key obtained from Monkey Learn
 | projectId| String     | ID of the project
-| samples  | String     | A list of dictionaries with the sample text (text property) and the ID of the category that sample should be saved (category_id property). The category IDs can be retrived using the classifier detail endpoint. Example: [{"text":"Example sample test 1 to category","category_id":17145562}]
+| samples  | String     | A list of dictionaries with the sample text (text property) and the ID of the category that sample should be saved (category_id property). The category IDs can be retrived using the classifier detail endpoint. Example: ```[{"text":"Example sample test 1 to category","category_id":17145562}]```
 
 ## MonkeyLearn.uploadSamplesToMultiCategory
 This endpoints allows you to upload samples to one or more categories.
@@ -94,7 +96,7 @@ This endpoints allows you to upload samples to one or more categories.
 |----------|------------|----------
 | apiToken | credentials| The api key obtained from Monkey Learn
 | projectId| String     | ID of the project
-| samples  | String     | A list of dictionaries with the sample text (text property) and the ID of the category that sample should be saved (category_id property). The category IDs can be retrived using the classifier detail endpoint. Example: [{"text":"Example sample asdasdasdtest asdasd1 to category","category_id":[17145562]}]
+| samples  | String     | A list of dictionaries with the sample text (text property) and the ID of the category that sample should be saved (category_id property). The category IDs can be retrived using the classifier detail endpoint. Example: ```[{"text":"Example sample asdasdasdtest asdasd1 to category","category_id":[17145562]}]```
 
 ## MonkeyLearn.trainClassifier
 This endpoint allows you to train a classifier.
@@ -120,13 +122,13 @@ This endpoint creates a new classifier.
 | apiToken        | credentials| The api key obtained from Monkey Learn
 | name            | String     | Classifier name
 | description     | String     | Classifier description
-| trainState      | String     | Train state. TRAINED or UNTRAINED
+| trainState      | String     | Train state. ```TRAINED``` or ```UNTRAINED```
 | language        | String     | This setting should match the language in your samples. Default: en
-| ngramRange      | String     | N-gram range sets if features to be used to characterize texts will be Unigrams, Bigrams or Trigrams. Example: 1-1
+| ngramRange      | String     | N-gram range sets if features to be used to characterize texts will be Unigrams, Bigrams or Trigrams. Example: ```1-1```
 | useStemmer      | Boolean    | This setting sets if words should be stemmed. The stemming process transforms words into their root form, so inflected and derived words are grouped together. Default: true
-| stopWords       | String     | Stopwords are words that usually do not contribute as classification features. Example: soft,it
+| stopWords       | String     | Stopwords are words that usually do not contribute as classification features. Example: ```soft,it```
 | maxFeatures     | Number     | This sets the maximum number of features to be used to characterize texts in the training/classification process. 
-| stripStopwords  | Boolean    | Strip 
+| stripStopwords  | Boolean    | Strip stopwords
 | isMultilabel    | Boolean    | Define if the module is single-label (default) or multi-label. You can only set this option when you first create the module and you cannot change it later.
 | normalizeWeights| Boolean    | Weights normalize
 | classifier      | String     | Use this setting to choose which classification algorithm you want to use for this classifier. 
@@ -145,7 +147,7 @@ Extract keywords from a list of texts in English.
 | Field          | Type       | Description
 |----------------|------------|----------
 | apiToken       | credentials| The api key obtained from Monkey Learn
-| textList       | String     | Type: Array. A list of texts from which to extract keywords. Example: ["Monkeylearn is a Text Mining toolkit.", "This is a very good extractor"]
+| textList       | String     | Type: Array. A list of texts from which to extract keywords. Example: ```["Monkeylearn is a Text Mining toolkit.", "This is a very good extractor"]```
 | maxKeywords    | Number     | The maximum amount of keywords to extract, defaults to 10.
 | useStemming    | Boolean    | Take words to their base form in order to get better results , defaults to true.
 | useIdfs        | Boolean    | Use a language model for computing the Inverse Document Frequencies, defaults to true.
@@ -160,7 +162,7 @@ Extract keywords from a list of texts in Spanish.
 | Field      | Type       | Description
 |------------|------------|----------
 | apiToken   | credentials| The api key obtained from Monkey Learn
-| textList   | String     | Type: Array. A list of texts from which to extract keywords. 
+| textList   | String     | Type: Array. A list of texts from which to extract keywords.
 | maxKeywords| Number     | The maximum amount of keywords to extract, defaults to 10.
 
 ## MonkeyLearn.extractTextFromBinary
