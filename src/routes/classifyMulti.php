@@ -11,10 +11,6 @@ $app->post('/api/MonkeyLearn/classifyMulti', function ($request, $response) {
     } else {
         $post_data = $validateRes;
     }
-
-    var_dump($post_data['args']);
-    die();
-
     foreach ($post_data['args'] as $key=>$value){
         if($value=="true"){
             $post_data['args'][$key]=true;
