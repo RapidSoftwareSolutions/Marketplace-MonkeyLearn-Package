@@ -78,7 +78,13 @@
         },
         {
           "name": "textList",
-          "type": "String",
+          "type": "Array",
+          "structure": [{
+            "name": "textString",
+            "type": "String",
+            "description": "Single text string",
+            "placeholder": "text"
+          }],
           "info": "Type: Array. List of the texts which you want to classify. Example: ['First text to classify','Second text to classify']",
           "required": true
         },
