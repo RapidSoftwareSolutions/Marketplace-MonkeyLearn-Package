@@ -78,9 +78,14 @@
         },
         {
           "name": "textList",
-          "type": "String",
+          "type": "List",
           "info": "Type: Array. List of the texts which you want to classify. Example: ['First text to classify','Second text to classify']",
-          "required": true
+          "required": true,
+          "structure": {
+            "name": "text",
+            "type": "String",
+            "info": "Text from which you want to classify"
+          }
         },
         {
           "name": "sandbox",
@@ -246,7 +251,8 @@
         },
         {
           "name": "samplesStrategy",
-          "type": "String",
+          "type": "Select",
+          "options": ["move-to-parent", "move-to"],
           "info": "Parameter can have 2 values: “move-to-parent” or “move-to”. If you select “move-to” then also have to set the “samples-category-id” paremeter with the id of the category where you want to move the samples.",
           "required": true
         },
@@ -396,7 +402,8 @@
         },
         {
           "name": "trainState",
-          "type": "String",
+          "type": "Select",
+          "options": ["TRAINED","UNTRAINED"],
           "info": "Train state. TRAINED or UNTRAINED",
           "required": false
         },
@@ -498,9 +505,14 @@
       },
         {
           "name": "textList",
-          "type": "String",
-          "info": "Type: Array. A list of texts from which to extract keywords. Example: [\"Monkeylearn is a Text Mining toolkit.\", \"This is a very good extractor\"]",
-          "required": true
+          "type": "List",
+          "info": "Type: List. A list of texts from which to extract keywords. Example: [\"Monkeylearn is a Text Mining toolkit.\", \"This is a very good extractor\"]",
+          "required": true,
+          "structure": {
+            "name": "text",
+            "type": "String",
+            "info": "Text from which to extract keywords"
+          }
         },
         {
           "name": "maxKeywords",
@@ -564,9 +576,14 @@
       },
         {
           "name": "textList",
-          "type": "String",
-          "info": "Type: Array. A list of texts from which to extract keywords. ",
-          "required": true
+          "type": "List",
+          "info": "Type: List. A list of texts from which to extract keywords. ",
+          "required": true,
+          "structure": {
+            "name": "text",
+            "type": "String",
+            "info": "Text from which to extract keywords"
+          }
         },
         {
           "name": "maxKeywords",
@@ -642,9 +659,14 @@
       },
         {
           "name": "textList",
-          "type": "String",
+          "type": "List",
           "info": "Type: Array. A list of texts from which to extract the entities. Example: [\"Juan lives in Uruguay.\", \"Monica lives in the USA.\"]",
-          "required": true
+          "required": true,
+          "structure": {
+            "name": "text",
+            "type": "String",
+            "info": "Text from which to extract entities"
+          }
         }
       ],
       "callbacks": [{
@@ -666,9 +688,14 @@
       },
         {
           "name": "textList",
-          "type": "String",
+          "type": "List",
           "info": "Type: Array. A list of texts from which to extract the entities. Example: [\"Juan vive en Uruguay.\", \"Monica vive en USA.\"]",
-          "required": true
+          "required": true,
+          "structure": {
+            "name": "text",
+            "type": "String",
+            "info": "Text from which to extract entities"
+          }
         }
       ],
       "callbacks": [{

@@ -10,6 +10,16 @@
 2. Navigate to My Account->Api Keys
 3. Generate API token
 
+## Custom datatypes:
+ |Datatype|Description|Example
+ |--------|-----------|----------
+ |Datepicker|String which includes date and time|```2016-05-28 00:00:00```
+ |Map|String which includes latitude and longitude coma separated|```50.37, 26.56```
+ |List|Simple array|```["123", "sample"]```
+ |Select|String with predefined values|```sample```
+ |Array|Array of objects|```[{"Second name":"123","Age":"12","Photo":"sdf","Draft":"sdfsdf"},{"name":"adi","Second name":"bla","Age":"4","Photo":"asfserwe","Draft":"sdfsdf"}] ```
+
+
  
 ## MonkeyLearn.classify
 This endpoint allows you to perform the classification of many text samples using only one request to a custom or public module.
@@ -29,7 +39,7 @@ This endpoint allows you to perform the classification of many text samples usin
 |-------------|------------|----------
 | apiToken    | credentials| The api key obtained from Monkey Learn
 | classifierId| String     | ID of the classifier
-| textList    | String     | Type: Array. List of the texts which you want to classify. Example: ```['First text to classify','Second text to classify']```
+| textList    | List     | Type: Array. List of the texts which you want to classify. Example: ```['First text to classify','Second text to classify']```
 | sandbox     | Boolean    | Set this parameter to true if you want to use the sandbox to perform the classification.
 | debug       | Boolean    | Set this parameter to true if you want to use the debug output.y
 
@@ -77,7 +87,7 @@ This endpoint deletes a category from the tree. This action cannot be undone.
 | apiToken         | credentials| The api key obtained from Monkey Learn
 | projectId        | String     | ID of the project
 | categoryId       | String     | Category id
-| samplesStrategy  | String     | Parameter can have 2 values: ```move-to-parent``` or ```move-to```. If you select ```move-to``` then also have to set the ```samples-category-id``` paremeter with the id of the category where you want to move the samples.
+| samplesStrategy  | Select     | Parameter can have 2 values: ```move-to-parent``` or ```move-to```. If you select ```move-to``` then also have to set the ```samples-category-id``` paremeter with the id of the category where you want to move the samples.
 | samplesCategoryId| String     | Category id
 
 ## MonkeyLearn.uploadSamplesToCategory
@@ -122,7 +132,7 @@ This endpoint creates a new classifier.
 | apiToken        | credentials| The api key obtained from Monkey Learn
 | name            | String     | Classifier name
 | description     | String     | Classifier description
-| trainState      | String     | Train state. ```TRAINED``` or ```UNTRAINED```
+| trainState      | Select     | Train state. ```TRAINED``` or ```UNTRAINED```
 | language        | String     | This setting should match the language in your samples. Default: en
 | ngramRange      | String     | N-gram range sets if features to be used to characterize texts will be Unigrams, Bigrams or Trigrams. Example: ```1-1```
 | useStemmer      | Boolean    | This setting sets if words should be stemmed. The stemming process transforms words into their root form, so inflected and derived words are grouped together. Default: true
@@ -147,7 +157,7 @@ Extract keywords from a list of texts in English.
 | Field          | Type       | Description
 |----------------|------------|----------
 | apiToken       | credentials| The api key obtained from Monkey Learn
-| textList       | String     | Type: Array. A list of texts from which to extract keywords. Example: ```["Monkeylearn is a Text Mining toolkit.", "This is a very good extractor"]```
+| textList       | List     | Type: Array. A list of texts from which to extract keywords. Example: ```["Monkeylearn is a Text Mining toolkit.", "This is a very good extractor"]```
 | maxKeywords    | Number     | The maximum amount of keywords to extract, defaults to 10.
 | useStemming    | Boolean    | Take words to their base form in order to get better results , defaults to true.
 | useIdfs        | Boolean    | Use a language model for computing the Inverse Document Frequencies, defaults to true.
@@ -162,7 +172,7 @@ Extract keywords from a list of texts in Spanish.
 | Field      | Type       | Description
 |------------|------------|----------
 | apiToken   | credentials| The api key obtained from Monkey Learn
-| textList   | String     | Type: Array. A list of texts from which to extract keywords.
+| textList   | List     | Type: Array. A list of texts from which to extract keywords.
 | maxKeywords| Number     | The maximum amount of keywords to extract, defaults to 10.
 
 ## MonkeyLearn.extractTextFromBinary
@@ -187,7 +197,7 @@ Extract Entities from a list of texts using Named Entity Recognition (NER). NER 
 | Field   | Type       | Description
 |---------|------------|----------
 | apiToken| credentials| The api key obtained from Monkey Learn
-| textList| String     | Type: Array. A list of texts from which to extract the entities. Example: ```["Juan lives in Uruguay.", "Monica lives in the USA."]```
+| textList| List     | Type: Array. A list of texts from which to extract the entities. Example: ```["Juan lives in Uruguay.", "Monica lives in the USA."]```
 
 ## MonkeyLearn.extractEntitiesInSpanish
 Extract Entities from a list of texts in Spanish using Named Entity Recognition (NER). NER labels sequences of words in a text which are the names of things, such as person and company names. This implementation labels 4 classes: ```PERS```, ```ORG```, ```LUG``` and ```OTROS```.
@@ -195,7 +205,7 @@ Extract Entities from a list of texts in Spanish using Named Entity Recognition 
 | Field   | Type       | Description
 |---------|------------|----------
 | apiToken| credentials| The api key obtained from Monkey Learn
-| textList| String     | Type: Array. A list of texts from which to extract the entities. Example: ```["Juan vive en Uruguay.", "Monica vive en USA."]```
+| textList| List     | Type: Array. A list of texts from which to extract the entities. Example: ```["Juan vive en Uruguay.", "Monica vive en USA."]```
 
 ## MonkeyLearn.executePipeline
 Executes the selected pipeline.
